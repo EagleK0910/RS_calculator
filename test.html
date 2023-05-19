@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RS聯賽計算機</title>
+    <style>
+        .container {
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        #result {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RS聯賽計算機</h1>
+        <hr>
+        <h2>擊殺積分</h2>
+        <input type="number" id="JG" placeholder="擊殺敵方打野數">
+        <input type="number" id="ADC" placeholder="擊殺敵方魔龍路數">
+        <input type="number" id="APC" placeholder="擊殺敵方中路數">
+        <input type="number" id="TOP" placeholder="擊殺敵方凱薩路數">
+        <input type="number" id="SUP" placeholder="擊殺敵方輔助數">
+
+        <hr>
+        <h2>連殺積分</h2>
+        <input type="number" id="B3" placeholder="三連殺數量">
+        <input type="number" id="B4" placeholder="四連殺數量">
+        <input type="number" id="B5" placeholder="五連殺數量">
+
+        <hr>
+        <h2>總輸出積分</h2>
+        <input type="number" id="JGK" placeholder="打野輸出">
+        <input type="number" id="ADCK" placeholder="魔龍路輸出">
+        <input type="number" id="APCK" placeholder="中路輸出">
+        <input type="number" id="TOPK" placeholder="凱薩路輸出">
+        <input type="number" id="SUPK" placeholder="輔助輸出">
+
+        <hr>
+        <h2>BOSS積分</h2>
+        <input type="number" id="L_Kriknak" placeholder="小凱薩">
+        <input type="number" id="L_Murad" placeholder="小魔龍">
+        <input type="number" id="Kriknak" placeholder="中凱薩">
+        <input type="number" id="Murad" placeholder="中魔龍">
+        <input type="number" id="B_Kriknak" placeholder="魔神凱薩(15分鐘)">
+
+        <h2>防禦塔積分</h2>
+        <input type="number" id="Turret1" placeholder="外塔">
+        <input type="number" id="Turret2" placeholder="中塔">
+        <input type="number" id="Turret3" placeholder="高地">
+        <input type="number" id="home" placeholder="主堡">
+
+        <button onclick="add()">完成</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function add() {
+            var JG = parseFloat(document.getElementById('JG').value);
+            var ADC = parseFloat(document.getElementById('ADC').value);
+            var APC = parseFloat(document.getElementById('APC').value);
+            var TOP = parseFloat(document.getElementById('TOP').value);
+            var SUP = parseFloat(document.getElementById('SUP').value);
+
+            var B3 = parseFloat(document.getElementById('B3').value);
+            var B4 = parseFloat(document.getElementById('B4').value);
+            var B5 = parseFloat(document.getElementById('B5').value);
+
+            var JGK = parseFloat(document.getElementById('JGK').value);
+            var ADCK = parseFloat(document.getElementById('ADCK').value);
+            var APCK = parseFloat(document.getElementById('APCK').value);
+            var TOPK = parseFloat(document.getElementById('TOPK').value);
+            var SUPK = parseFloat(document.getElementById('SUPK').value);
+
+            var L_Kriknak = parseFloat(document.getElementById('L_Kriknak').value);
+            var L_Murad = parseFloat(document.getElementById('L_Murad').value);
+            var Kriknak = parseFloat(document.getElementById('Kriknak').value);
+            var Murad = parseFloat(document.getElementById('Murad').value);
+            var B_Kriknak = parseFloat(document.getElementById('B_Kriknak').value);
+
+            var Turret1 = parseFloat(document.getElementById('Turret1').value);
+            var Turret2 = parseFloat(document.getElementById('Turret2').value);
+            var Turret3 = parseFloat(document.getElementById('Turret3').value);
+            var home = parseFloat(document.getElementById('home').value);
+
+            var t1 = JG * 2 + ADC * 1.8 + APC * 1.8 + TOP * 1.6 + SUP * 1.5;
+            var t2 = B3 * 2 + B4 * 3 + B4 * 4;
+            var t3_1 = JGK + ADCK + APCK + TOPK + SUPK;
+            var t3_2 = t3_1 / 100000;
+            var t4 = L_Kriknak * 5 + L_Murad * 5 + Kriknak * 8 + Murad * 8 + B_Kriknak * 15;
+            var t5 = Turret1 * 5 + Turret2 * 10 + Turret3 * 15 + home * 25;
+
+            var result1 = t1 + t2 + t3_2 + t4 + t5;
+            var result = result1.toFixed(1);
+            document.getElementById('result').textContent = '總積分：' + result;
+        }
+
+    </script>
+</body>
+</html>
