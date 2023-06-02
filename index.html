@@ -79,7 +79,7 @@
         <p>&emsp;</p>
         <p>&emsp;</p>
         <div id="result">The design produced by 星痕Star
-            <br>Version 1.1.0
+            <br>Version 1.1.2
         </div>
     </div>
 
@@ -112,11 +112,11 @@
             var Turret3 = parseFloat(document.getElementById('Turret3').value) || 0;
             var home = parseFloat(document.getElementById('home').value) || 0;
 
-            var t1 = JG * 2 + ADC * 1.8 + APC * 1.8 + TOP * 1.6 + SUP * 1.5;
-            var t2 = B3 * 2 + B4 * 3 + B4 * 4;
+            var t1 = JG * 2 + ADC * 1.8 + APC * 1.8 + TOP * 1.6 + SUP * 1.4;
+            var t2 = B3 * 2 + B4 * 4 + B4 * 5;
             var t3_1 = JGK + ADCK + APCK + TOPK + SUPK;
             var t3_2 = t3_1 / 100000;
-            var t4 = L_Kriknak * 5 + L_Murad * 5 + Kriknak * 8 + Murad * 8 + B_Kriknak * 15;
+            var t4 = L_Kriknak * 5 + L_Murad * 5 + Kriknak * 10 + Murad * 10 + B_Kriknak * 15;
             var t5 = Turret1 * 5 + Turret2 * 10 + Turret3 * 15 + home * 25;
 
             var result1 = t1 + t2 + t3_2 + t4 + t5;
